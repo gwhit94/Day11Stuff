@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            height: 600px;
+            width: 600px;
+            background-color: grey; 
+            flex-flow: row wrap;
+        }
+        .column {
+            flex-flow: column wrap;
+        }
+
+        .box {
+            border: 2px solid black;
+            margin: 10px;
+            background-color: white;
+            height: calc(200px - 24px);
+            width: calc(200px - 24px);
+        }
+        #text {
+            flex-basis: 100%;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <div id="0" class="box"></div>
+            <div id="1" class="box"></div>
+            <div id="2" class="box"></div>
+        </div>
+        <div class="column">
+            <div id="3" class="box"></div>
+            <div id="4" class="box"></div>
+            <div id="5" class="box"></div>
+        </div>
+        <div class="column">
+            <div id="6" class="box"></div>
+            <div id="7" class="box"></div>
+            <div id="8" class="box"></div>
+        </div>
+        <div id="text">First player's move</div>
+    </div>
+    
+    <script>
+        var textBox = document.getElementById("text");
+        var boxArray = document.querySelectorAll(".box");
+        var xOccupied = [];
+        var oOccupied = [];
+        var winConditions = {
+            row1: [0,3,6],
+            row2: [1,4,7],
+            row3: [2,5,8],
+
+            column1: [0,1,2],
+            column2: [3,4,5],
+            column3: [6,7,8],
+
+            diagonal1: [0,4,8],
+            diagonal2: [2,4,6],
+        }
+        var keys = Object.keys(winConditions);
+
+        boxArray.forEach(element => {
+            element.addEventListener("click", markTile);
+        });
+
+        var turn = ["X", "O"];
+        var currentTurn = turn[0];
+        var moveNumber = 0;
+
+        function winCheck(){
+            var xCheck = xOccupied.sort(function(a, b){return a - b});
+            console.log(xCheck);
+
+
+        }
+        if (xOccupied.length >= 3){
+            winCheck();
+        }
+
+        function markTile(e){
+            if (e.target.classList[1] === "taken"){
+                textBox.innerText = "Please choose an open square"; 
+            } else if ( currentTurn === "X"){
+                e.target.classList.add("taken");
+                e.target.innerText = "X";
+                currentTurn = turn[1];
+                textBox.innerText = "O's turn";
+                xOccupied.push(parseInt(e.target.id));
+                moveNumber = moveNumber++;
+            } else {
+                e.target.classList.add("taken");
+                e.target.innerText = "O";
+                currentTurn = turn[0];
+                textBox.innerText = "X's turn";
+                oOccupied.push(parseInt(e.target.id));
+                moveNumber = moveNumber++;
+            }
+            console.log(xOccupied, oOccupied);
+
+            // switch (currentTurn){
+            //     case "X":
+            //         e.target.innerText = "X";
+            //         currentTurn = turn[1];
+            //         break;
+            //     case "O":
+            //         e.target.innerText = "O";
+            //         currentTurn = turn[0];
+            // }
+        }
+
+
+
+
+
+        
+    </script>
+</body>
+</html>
