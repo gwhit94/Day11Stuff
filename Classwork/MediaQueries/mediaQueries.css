@@ -36,12 +36,9 @@
     flex-basis: calc(100% / 3);
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
     .sub-main {
         flex-basis: calc(100% / 3 - 20px);
-    }
-    .sub-aside {
-        flex-basis: calc(100% / 3);
     }
     .sub-main, .sub-aside {
         line-height: 175px;
