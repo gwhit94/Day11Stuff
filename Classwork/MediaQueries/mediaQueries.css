@@ -30,18 +30,18 @@
 }
 
 .sub-main {
-    width: calc(50% - 20px);
+    flex-basis: calc(50% - 20px);
 }
 .sub-aside {
-    width: calc(100% / 3);
+    flex-basis: calc(100% / 3);
 }
 
 @media only screen and (min-width: 800px) {
     .sub-main {
-        width: calc(100% / 3 - 20px);
+        flex-basis: calc(100% / 3 - 20px);
     }
     .sub-aside {
-        width: calc(100% / 3);
+        flex-basis: calc(100% / 3);
     }
     .sub-main, .sub-aside {
         line-height: 175px;
@@ -51,17 +51,17 @@
 
 @media only screen and (min-width: 1200px) {
     .main-container {
-        width: calc(300% / 4);
+        flex-basis: calc(300% / 4);
     }
     .sub-container {
-        width: calc(100% / 4);
+        flex-basis: calc(100% / 4);
         flex-flow: row wrap;
     }
     .sub-main {
-        width: calc(100% / 4 - 20px);
+        flex-basis: calc(100% / 4 - 20px);
     }
     .sub-aside {
-        width: 100%;
+        flex-basis: 100%;
     }
 
 
