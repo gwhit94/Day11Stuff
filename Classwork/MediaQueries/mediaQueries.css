@@ -51,14 +51,14 @@
 
 @media only screen and (min-width: 1200px) {
     .main-container {
-        flex-basis: calc(300% / 4);
+        flex-basis: calc(75%);
     }
     .sub-container {
-        flex-basis: calc(100% / 4);
+        flex-basis: calc(25%);
         flex-flow: row wrap;
     }
     .sub-main {
-        flex-basis: calc(100% / 4 - 20px);
+        flex-basis: calc(25% - 20px);
     }
     .sub-aside {
         flex-basis: 100%;
